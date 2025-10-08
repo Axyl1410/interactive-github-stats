@@ -1,0 +1,46 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+*.egg-info/
+*.egg
+dist/
+build/
+pip-wheel-metadata/
+.python-version
+
+# Environments
+.venv/
+venv/
+env/
+ENV/
+.conda/
+.mamba/
+.env
+.env.*
+
+# Streamlit
+.streamlit/secrets.toml
+.streamlit/config.toml
+.streamlit/logs/
+.streamlit/static/
+
+# Caches
+.cache/
+*.cache
+.pytest_cache/
+.mypy_cache/
+.pyre/
+.pytype/
+
+# IDE/editor
+.idea/
+.vscode/
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
