@@ -42,7 +42,7 @@ pip install -r requirements.txt
 
 To avoid GitHub API rate limits, it's recommended to use a personal access token:
 
-1. Create a personal access token at: https://github.com/settings/tokens
+1. Create a fine-grained personal access token at: https://github.com/settings/personal-access-tokens/new
    - For public repository access, no specific scopes are required
 2. Copy `.env.example` to `.env`:
    ```bash
