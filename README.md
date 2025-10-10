@@ -36,6 +36,25 @@ Install dependencies:
 pip install -r requirements.txt
 ```
 
+## Setup
+
+### GitHub API Token (Recommended)
+
+To avoid GitHub API rate limits, it's recommended to use a personal access token:
+
+1. Create a fine-grained personal access token at: https://github.com/settings/personal-access-tokens/new
+   - For public repository access, no specific scopes are required
+2. Copy `.env.example` to `.env`:
+   ```bash
+   cp .env.example .env
+   ```
+3. Edit `.env` and add your token:
+   ```
+   GITHUB_TOKEN=your_actual_token_here
+   ```
+
+The app will work without a token but may be rate-limited by GitHub (60 requests/hour). With authentication, you get 5000 requests/hour.
+
 ## Run
 
 ```bash
@@ -46,7 +65,7 @@ The app opens in your browser at `http://localhost:8501` by default.
 
 ## Notes
 
-- GitHub API Rate Limits: Unauthenticated requests are rate-limited. If you hit limits, wait a bit or add authentication (e.g., a token) in `services/github_api.py`.
+- GitHub API Rate Limits: Without authentication, requests are limited to 60/hour. With a token, you get 5000/hour.
 - Network/Firewall: The app fetches from the GitHub API; ensure outbound HTTPS is allowed.
 
 ## Troubleshooting

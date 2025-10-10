@@ -19,7 +19,9 @@ ENV/
 .conda/
 .mamba/
 .env
+.env.local
 .env.*
+!.env.example
 
 # Streamlit
 .streamlit/secrets.toml

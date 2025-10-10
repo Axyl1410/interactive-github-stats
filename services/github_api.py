@@ -1,13 +1,34 @@
+import os
 import requests
 import streamlit as st
+from dotenv import load_dotenv
+
+# Load environment variables from .env file
+load_dotenv()
+
+
+def get_headers():
+    """Get GitHub API headers with authentication if token is available."""
+    headers = {
+        "Accept": "application/vnd.github+json",
+        "X-GitHub-Api-Version": "2022-11-28"
+    }
+    
+    # Add Authorization header if token is available
+    github_token = os.getenv("GITHUB_TOKEN")
+    if github_token:
+        headers["Authorization"] = f"Bearer {github_token}"
+    
+    return headers
 
 
 @st.cache_data(ttl=3600)
 def get_framework_data(framework_name, repo_path):
     """Fetch single repository data from GitHub API."""
     url = f"https://api.github.com/repos/{repo_path}"
+    headers = get_headers()
     try:
-        response = requests.get(url, timeout=15)
+        response = requests.get(url, headers=headers, timeout=15)
         response.raise_for_status()
         repo_data = response.json()
         return {
