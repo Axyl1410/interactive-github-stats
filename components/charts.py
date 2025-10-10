@@ -19,7 +19,13 @@ def plot_stars(df, chart_type: str):
             x='Framework', y='Stars', color='Framework', markers=True,
             title='So sánh số lượng Sao (Stars) - Line', labels={'Stars': 'Số lượng Sao', 'Framework': 'Framework'}
         )
-    fig.update_layout(template='plotly_white', legend_title_text='Framework')
+    fig.update_layout(
+        template='plotly_dark', 
+        legend_title_text='Framework',
+        plot_bgcolor='rgba(0,0,0,0)',
+        paper_bgcolor='rgba(0,0,0,0)',
+        font=dict(color='#ffffff')
+    )
     st.plotly_chart(fig, use_container_width=True)
 
 
@@ -37,7 +43,13 @@ def plot_forks(df, chart_type: str):
             x='Framework', y='Forks', color='Framework', markers=True,
             title='So sánh số lượng Forks - Line', labels={'Forks': 'Số lượng Forks', 'Framework': 'Framework'}
         )
-    fig.update_layout(template='plotly_white', legend_title_text='Framework')
+    fig.update_layout(
+        template='plotly_dark', 
+        legend_title_text='Framework',
+        plot_bgcolor='rgba(0,0,0,0)',
+        paper_bgcolor='rgba(0,0,0,0)',
+        font=dict(color='#ffffff')
+    )
     st.plotly_chart(fig, use_container_width=True)
 
 
@@ -45,7 +57,12 @@ def plot_issues_pie(df):
     fig = px.pie(
         df, values='Open Issues', names='Framework', title='Phân bổ Open Issues', hole=.3
     )
-    fig.update_layout(template='plotly_white')
+    fig.update_layout(
+        template='plotly_dark',
+        plot_bgcolor='rgba(0,0,0,0)',
+        paper_bgcolor='rgba(0,0,0,0)',
+        font=dict(color='#ffffff')
+    )
     st.plotly_chart(fig, use_container_width=True)
 
 
@@ -58,7 +75,12 @@ def plot_scatter(df, show_issues: bool):
         labels={'Stars': 'Sao', 'Forks': 'Forks'},
         title='Stars vs Forks (kích thước ~ Open Issues)'
     )
-    fig.update_layout(template='plotly_white')
+    fig.update_layout(
+        template='plotly_dark',
+        plot_bgcolor='rgba(0,0,0,0)',
+        paper_bgcolor='rgba(0,0,0,0)',
+        font=dict(color='#ffffff')
+    )
     st.plotly_chart(fig, use_container_width=True)
 
 
@@ -78,7 +100,10 @@ def plot_correlation_heatmap(corr_matrix):
     
     fig.update_layout(
         title='Ma trận tương quan giữa các metrics',
-        template='plotly_white',
+        template='plotly_dark',
+        plot_bgcolor='rgba(0,0,0,0)',
+        paper_bgcolor='rgba(0,0,0,0)',
+        font=dict(color='#ffffff'),
         width=600,
         height=500
     )
@@ -111,7 +136,10 @@ def plot_trend_analysis(trend_data, df):
         title='Phân tích xu hướng: Tuổi repo vs Stars',
         xaxis_title='Tuổi repo (năm)',
         yaxis_title='Số lượng Stars',
-        template='plotly_white'
+        template='plotly_dark',
+        plot_bgcolor='rgba(0,0,0,0)',
+        paper_bgcolor='rgba(0,0,0,0)',
+        font=dict(color='#ffffff')
     )
     
     st.plotly_chart(fig, use_container_width=True)
@@ -128,7 +156,12 @@ def plot_statistical_insights(insights, df):
             title='Hệ số biến thiên (CV) của các metrics',
             labels={'x': 'Metrics', 'y': 'Coefficient of Variation (%)'}
         )
-        fig.update_layout(template='plotly_white')
+        fig.update_layout(
+        template='plotly_dark',
+        plot_bgcolor='rgba(0,0,0,0)',
+        paper_bgcolor='rgba(0,0,0,0)',
+        font=dict(color='#ffffff')
+    )
         st.plotly_chart(fig, use_container_width=True)
     
     # Distribution analysis
@@ -172,7 +205,10 @@ def plot_framework_ranking(comparison_df):
             )),
         showlegend=True,
         title="Radar Chart: Ranking các Framework",
-        template='plotly_white'
+        template='plotly_dark',
+        plot_bgcolor='rgba(0,0,0,0)',
+        paper_bgcolor='rgba(0,0,0,0)',
+        font=dict(color='#ffffff')
     )
     
     st.plotly_chart(fig, use_container_width=True)
